@@ -48,7 +48,7 @@ const BookList = (props) => (
 
 const App = (props) => props.loading ? <div>Loading...</div> :
             <div>
-              Hello {props.first_name} {props.last_name} <br/>
+              Hello {props.firstName} {props.lastName} <br/>
               <BookList books={props.books} />
             </div>;
 
@@ -58,16 +58,13 @@ const App = (props) => props.loading ? <div>Loading...</div> :
 
 const AppContainer = connect((state) => state, actions)(App);
 
-console.log('Loading state', window.__INITIAL_STATE_);
-
+// window.__INITIAL_STATE_ is our initial redux state from the server.
 const store = createStore(reducer, window.__INITIAL_STATE_)
-
-console.log('State', store.getState());
 
 // --------------------------------- And render it out.
 
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <Provider store={store}>
     <AppContainer />
   </Provider>, document.getElementById('root'));
