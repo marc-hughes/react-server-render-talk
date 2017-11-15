@@ -25,7 +25,7 @@ class Message extends React.Component {
 }
 
 
-const App = (props) => <div>This is my app <Message message='Hello' /></div>
+const App = (props) => <div>This is my app <Message message={props.message} /></div>
 
-//ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.hydrate(<App />, document.getElementById('root'));
+//ReactDOM.render(<App message='hello' />, document.getElementById('root'));
+ReactDOM.hydrate(<App message='hello'/>, document.getElementById('root'));
