@@ -58,8 +58,11 @@ const App = (props) => props.loading ? <div>Loading...</div> :
 
 const AppContainer = connect((state) => state, actions)(App);
 
+console.log('Loading state', window.__INITIAL_STATE_);
+
 const store = createStore(reducer, window.__INITIAL_STATE_)
 
+console.log('State', store.getState());
 
 // --------------------------------- And render it out.
 
@@ -84,4 +87,4 @@ const loadData = (store) => {
 }
 
 // We don't have to do this, but we can if we want to, could simulate a later load or something.
-loadData(store);
+// loadData(store);
